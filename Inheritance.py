@@ -33,7 +33,9 @@ class Laptop(Mobile):
     def __init__(self,model_name,mfg_year,camera_pixel,ram_size):
         
         # Using super() to inherit all the declared variables from the Base class to the Child class
-        super().__init__(model_name,mfg_year,camera_pixel)
+        #super().__init__(model_name,mfg_year,camera_pixel)
+        Mobile.__init__(self,model_name,mfg_year,camera_pixel)
+
         self.ram_size=ram_size
 
     def display_detail(self):
@@ -41,8 +43,11 @@ class Laptop(Mobile):
 
     def display(self):
         self.display_detail()
+        
         # Calling the display from the Mobile class
-        super().display()
+        # super().display()
+        Mobile.display(self)
+
         print(f"The RAM in this model is {self.ram_size}"+"GB")
 
 
